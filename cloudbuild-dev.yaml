@@ -11,6 +11,12 @@ steps:
   # Step 3: Push the Docker image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild-dev:v1.0']
+  
+  #Verify that the correct service account is being used in the build. 
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['container', 'clusters', 'get-credentials', 'hello-cluster', '--zone', 'us-central1-c']
+    env:
+    - 'CLOUDSDK_CORE_ACCOUNT=469874146578-compute@developer.gserviceaccount.com'  
 
   # Step 4: Apply the production deployment YAML file to the production namespace
   - name: 'gcr.io/cloud-builders/kubectl'
