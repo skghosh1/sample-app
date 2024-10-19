@@ -19,7 +19,7 @@ Expose the production-deployment deployment on the prod namespace to a LoadBalan
 Building Artifacts:
 ![Alt text](images/AR.png)
 
-Rolling back the production application to a previous version.
+Rolling back the production application to a previous version. For that just need to make a Rebuild in previous commit.
 ![Alt text](images/Rebuild.png)
 
 Final web page:
